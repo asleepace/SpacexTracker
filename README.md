@@ -65,11 +65,13 @@ If anything should fail to load either click the reload button or pull down to r
 The application roughyl follows the MVC paradigm with the following project strucure. The heavy lifting is done by the controllers which tie together the business logic, user interface and data together. Each directory has an `index.ts` file for easier imports.
 
 - `App.tsx` root of the application
-  - `./src/components` contains visual elements
-  - `./src/controllers` contains view controllers
-  - `./src/graphql` contains graphql logic
-  - `./src/hooks` contains react hooks
-  - `./src/interfaces` contains typescript definitions
+  - `assets` contains static image files
+  - `src` contains the source code
+    - `components` contains visual elements
+    - `controllers` contains view controllers
+    - `graphql` contains graphql logic
+    - `hooks` contains react hooks
+    - `interfaces` contains typescript definitions
 
 ## Troubleshooting
 
