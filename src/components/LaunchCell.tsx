@@ -1,6 +1,7 @@
 import React from 'react'
-import {StyleSheet, Text, View} from 'react-native'
+import {StyleSheet, View} from 'react-native'
 import {Launch} from '../interfaces/launches'
+import {Text} from './Text'
 
 interface LaunchCellProps {
   data: Launch
@@ -25,12 +26,16 @@ const styles = StyleSheet.create({
   container: {
     minHeight: 60,
     flexDirection: 'row',
+    justifyContent: 'center',
+    paddingHorizontal: 16,
+    paddingBottom: 8,
   },
   rocket: {
     flex: 1,
   },
   launch: {
     flex: 1,
+    alignItems: 'flex-end',
   },
   text: {
     color: 'white',
