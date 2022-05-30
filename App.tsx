@@ -20,7 +20,10 @@ import {Launch} from './src/interfaces'
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark'
+
   const [launches, setLaunches] = useState<Launch[]>([])
+  const [filtered, setFiltered] = useState<Launch[]>([])
+  const [search, setSearch] = useState<string>()
 
   useEffect(() => {
     fetchLaunches()
@@ -28,16 +31,39 @@ const App = () => {
       .catch(error => console.warn(error))
   }, [])
 
-  console.log({launches})
+  useEffect(() => {
+    if (!search) {
+      setFiltered([])
+      return
+    }
+    const searchTerm = search?.toLowerCase()
+    const output = launches.filter(data => {
+      const rocketName = data.rocket.rocket_name.toLowerCase()
+      const launchSite = data.launch_site.site_name.toLowerCase()
+      return rocketName.includes(searchTerm) || launchSite.includes(searchTerm)
+    })
+
+    setFiltered(output)
+  }, [search, launches])
+
+  const searchTerm = search ? search.toLowerCase() : ''
 
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <SearchBar />
+      <SearchBar onSearch={setSearch} />
       <ScrollView contentInsetAdjustmentBehavior="automatic">
-        {launches.map(data => {
-          return <LaunchCell data={data} />
-        })}
+        {launches
+          .filter(data => {
+            const rocketName = data.rocket.rocket_name.toLowerCase()
+            const launchSite = data.launch_site.site_name.toLowerCase()
+            return (
+              rocketName.includes(searchTerm) || launchSite.includes(searchTerm)
+            )
+          })
+          .map(data => {
+            return <LaunchCell data={data} />
+          })}
       </ScrollView>
     </SafeAreaView>
   )
