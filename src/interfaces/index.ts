@@ -1,1 +1,1 @@
-export {Launch, LaunchResponse} from './launches'
+export type {Launch, LaunchResponse} from './launches'

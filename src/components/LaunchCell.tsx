@@ -3,6 +3,12 @@ import {StyleSheet, TouchableOpacity, View} from 'react-native'
 import {Launch} from '../interfaces/launches'
 import {Text} from './Text'
 
+const DATE_FORMAT = {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+}
+
 interface LaunchCellProps {
   data: Launch
 }
@@ -29,11 +35,11 @@ const LaunchCellCollapsed = ({data}: LaunchCellProps) => {
   return (
     <View style={styles.container}>
       <View style={styles.rocket}>
-        <Text type={'large'}>{data.rocket.rocket_name}</Text>
+        <Text type={'large'}>{data.rocketName}</Text>
         <Text type={'small'}>{'ROCKET NAME'}</Text>
       </View>
       <View style={styles.launch}>
-        <Text type={'large'}>{data.launch_site.site_name}</Text>
+        <Text type={'large'}>{data.launchSite}</Text>
         <Text type={'small'}>{'LAUNCH SITE'}</Text>
       </View>
     </View>
@@ -41,31 +47,41 @@ const LaunchCellCollapsed = ({data}: LaunchCellProps) => {
 }
 
 const LaunchCellExpanded = ({data}: LaunchCellProps) => {
+  const localizedDate = data.launchDate.toLocaleDateString('en-US', DATE_FORMAT)
+  const localizedTime = data.launchDate.toLocaleTimeString()
   return (
     <View style={styles.container}>
       <View style={styles.rocket}>
-        <Text type={'large'}>{data.rocket.rocket_name}</Text>
+        <Text type={'large'}>{data.rocketName}</Text>
         <Text type={'small'}>{'ROCKET NAME'}</Text>
         <Text type={'large'} style={styles.margin}>
-          {data.rocket.rocket.company}
+          {data.rocketCompany}
         </Text>
         <Text type={'small'}>{'COMPANY NAME'}</Text>
         <Text type={'large'} style={styles.margin}>
-          {`${data.rocket.rocket.mass.kg} kg`}
+          {`${data.rocketMass} kg`}
         </Text>
         <Text type={'small'}>{'ROCKET MASS'}</Text>
+        <Text type={'large'} style={styles.margin}>
+          {localizedDate}
+        </Text>
+        <Text type={'small'}>{'LAUNCH DATE'}</Text>
       </View>
       <View style={styles.launch}>
-        <Text type={'large'}>{data.launch_site.site_name}</Text>
+        <Text type={'large'}>{data.launchSite}</Text>
         <Text type={'small'}>{'LAUNCH SITE'}</Text>
         <Text type={'large'} style={styles.margin}>
-          {data.mission_name}
+          {data.missionName}
         </Text>
         <Text type={'small'}>{'MISSION NAME'}</Text>
         <Text type={'large'} style={styles.margin}>
-          {data.mission_id[0]}
+          {data.missionId}
         </Text>
         <Text type={'small'}>{'MISSION ID'}</Text>
+        <Text type={'large'} style={styles.margin}>
+          {localizedTime}
+        </Text>
+        <Text type={'small'}>{'LAUNCH TIME'}</Text>
       </View>
     </View>
   )

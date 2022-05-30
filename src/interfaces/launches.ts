@@ -3,14 +3,14 @@
  * an array of launch data returned by the API.
  */
 export interface LaunchResponse {
-  launches: Launch[]
+  launches: RawLaunch[]
 }
 
 /**
  * TypeScript interface for the launch data returned by the GraphQL
- * API which contains the launch data.
+ * API which contains the raw launch data.
  */
-export interface Launch {
+export interface RawLaunch {
   launch_date_local: Date
   launch_site: {
     site_name: string
@@ -27,4 +27,18 @@ export interface Launch {
     }
     rocket_name: string
   }
+}
+
+/**
+ * After fetching the raw launch data we will transform the object
+ * to look like this to remove handling this logic in the cells.
+ */
+export interface Launch {
+  missionId: string
+  missionName: string
+  launchSite: string
+  launchDate: Date
+  rocketName: string
+  rocketCompany: string
+  rocketMass: number
 }
