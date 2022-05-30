@@ -5,9 +5,8 @@
  * A simple application for tracking SpaceX shuttle launches.
  */
 
-import React, {useCallback} from 'react'
-import {SafeAreaView, StatusBar, StyleSheet} from 'react-native'
-import {SpacexLogo} from './src/components'
+import React from 'react'
+import {ScreenContainer, SpacexLogo} from './src/components'
 import {
   AboutMeController,
   AboutMeHandle,
@@ -17,25 +16,14 @@ import {
 const App = () => {
   /* show about me modal when the user taps on the spacex logo */
   const aboutMeRef = React.createRef<AboutMeHandle>()
-  const showAboutMe = useCallback(() => {
-    aboutMeRef.current?.show()
-  }, [aboutMeRef])
 
   return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar barStyle={'light-content'} />
-      <SpacexLogo onPress={showAboutMe} />
+    <ScreenContainer>
+      <SpacexLogo onPress={() => aboutMeRef.current?.show()} />
       <AboutMeController ref={aboutMeRef} />
       <LaunchController />
-    </SafeAreaView>
+    </ScreenContainer>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: 'black',
-    flex: 1,
-  },
-})
 
 export default App
