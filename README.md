@@ -50,6 +50,16 @@ To run the application on Android:
 npx react-native run-android
 ```
 
+## How to Use
+
+The SpaceX Tacker is a single page\* application which will fetch and render launches automatically. To learn more about a launch, simply tap on the cell and it will display more detailed information.
+
+You can also filter the data by rocket name or launch station by typing into the search bar (case-insensitive)!
+
+To open the about me section tap on the SpaceX logo and a new modal will appear with the details.
+
+If anything should fail to load either click the reload button or pull down to refresh, enjoy!
+
 ## Project Structure
 
 The application roughyl follows the MVC paradigm with the following project strucure. The heavy lifting is done by the controllers which tie together the business logic, user interface and data together. Each directory has an `index.ts` file for easier imports.
