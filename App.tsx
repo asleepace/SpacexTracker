@@ -5,7 +5,7 @@
  * A simple application for tracking SpaceX shuttle launches.
  */
 
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import {
   SafeAreaView,
   ScrollView,
@@ -14,15 +14,19 @@ import {
   useColorScheme,
 } from 'react-native'
 import {fetchLaunches} from './src/graphql'
+import {Launch} from './src/interfaces'
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark'
+  const [launches, setLaunches] = useState<Launch[]>([])
 
   useEffect(() => {
     fetchLaunches()
-      .then(response => console.log(response))
+      .then(data => setLaunches(data))
       .catch(error => console.warn(error))
   }, [])
+
+  console.log({launches})
 
   return (
     <SafeAreaView style={styles.container}>

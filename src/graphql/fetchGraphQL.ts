@@ -12,4 +12,6 @@ export const fetchGraphQL = (query: string) =>
     body: JSON.stringify({
       query,
     }),
-  }).then(response => response.json())
+  })
+    .then(response => response.json())
+    .then(json => json.data)
