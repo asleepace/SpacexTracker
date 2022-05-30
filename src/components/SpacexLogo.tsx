@@ -1,5 +1,5 @@
 import React from 'react'
-import {Image, TouchableOpacity} from 'react-native'
+import {Image, StyleSheet, TouchableOpacity} from 'react-native'
 
 interface SpacexLogoProps {
   onPress(): void
@@ -13,8 +13,17 @@ export const SpacexLogo = ({onPress}: SpacexLogoProps) => (
   <TouchableOpacity onPress={() => onPress()}>
     <Image
       source={require('../../assets/logo.png')}
-      style={{marginLeft: 20, height: 30, width: '100%'}}
+      style={styles.logo}
       resizeMode={'contain'}
     />
   </TouchableOpacity>
 )
+
+const styles = StyleSheet.create({
+  logo: {
+    marginVertical: 16,
+    marginLeft: 20,
+    height: 30,
+    width: '100%',
+  },
+})
