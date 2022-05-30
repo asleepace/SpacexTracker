@@ -1,5 +1,5 @@
 import React, {useCallback, useEffect, useState} from 'react'
-import {FlatList, RefreshControl} from 'react-native'
+import {FlatList, RefreshControl, StyleSheet} from 'react-native'
 import {ErrorView, LaunchCell, LoadingView, SearchBar} from '../components'
 import {fetchLaunches} from '../graphql'
 import {useSearchFilter} from '../hooks'
@@ -56,11 +56,12 @@ export const LaunchController = (_props: LaunchControllerProps) => {
         data={filteredData}
         renderItem={({item}) => <LaunchCell data={item} />}
         keyExtractor={(item, index) => `${+item.launchDate}_${index}`}
+        style={styles.list}
         refreshControl={
           <RefreshControl
             refreshing={didStartLoadingLaunchData}
+            colors={['white', 'white']}
             onRefresh={onLoadData}
-            colors={['white']}
           />
         }
       />
@@ -74,3 +75,12 @@ export const LaunchController = (_props: LaunchControllerProps) => {
     </>
   )
 }
+
+const styles = StyleSheet.create({
+  list: {
+    paddingHorizontal: 16,
+  },
+  refresh: {
+    color: 'white',
+  },
+})

@@ -11,7 +11,7 @@ export const SearchBar = ({onSearch}: SearchBarProps) => {
       <TextInput
         placeholder={'Search by name, launch site, etc...'}
         onChangeText={text => onSearch(text)}
-        placeholderTextColor={'#999'}
+        placeholderTextColor={'rgba(255, 255, 255, 0.3)'}
         clearTextOnFocus={true}
         style={styles.input}
       />
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
   },
   input: {
     color: 'white',
-    backgroundColor: '#232323',
+    backgroundColor: 'black',
     paddingHorizontal: 8,
     paddingVertical: 8,
     borderRadius: 8,
