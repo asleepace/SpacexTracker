@@ -1,29 +1,32 @@
-import React, {useState} from 'react'
-import {Image, Modal, StyleSheet, View} from 'react-native'
-import {LabeledText} from '../components'
+import React, {useImperativeHandle, useState} from 'react'
+import {Image, Modal, StyleSheet, TouchableOpacity, View} from 'react-native'
+import {LabeledText, Text} from '../components'
 
-interface AboutMeControllerProps {
-  shouldShow: boolean
-}
+interface AboutMeControllerProps {}
 
-interface AboutMeHandle {
+export interface AboutMeHandle {
   show(): void
   hide(): void
 }
 
-export const AboutMeController = (
-  {shouldShow}: AboutMeControllerProps,
-  ref: React.RefObject<AboutMeHandle>,
-) => {
-  const [visible, setVisible] = useState(shouldShow)
+/**
+ * A modal which contains information about the author, this component makes use
+ * of forwardRef along with useImperativeHandle to display the modal.
+ */
+export const AboutMeController = React.forwardRef((_props, ref) => {
+  const [visible, setVisible] = useState(false)
 
-  // useImperativeHandle(ref, () => ({
-  //   hide: () => setVisible(false),
-  //   show: () => setVisible(true),
-  // }))
+  /* exposes the hide and show methods */
+  useImperativeHandle(ref, () => ({
+    hide: () => setVisible(false),
+    show: () => setVisible(true),
+  }))
 
   return (
-    <Modal presentationStyle={'formSheet'} visible={visible}>
+    <Modal
+      presentationStyle={'formSheet'}
+      visible={visible}
+      animationType={'slide'}>
       <View style={styles.container}>
         <Image
           source={require('../../assets/colin.jpeg')}
@@ -39,10 +42,15 @@ export const AboutMeController = (
           label={'linkedin'}
           text={'https://www.linkedin.com/in/colin-teahan/'}
         />
+        <TouchableOpacity
+          style={styles.close}
+          onPress={() => setVisible(false)}>
+          <Text style={styles.closeText}>{'DISMISS'}</Text>
+        </TouchableOpacity>
       </View>
     </Modal>
   )
-}
+})
 
 const styles = StyleSheet.create({
   container: {
@@ -53,8 +61,23 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   colin: {
+    borderColor: 'white',
+    borderWidth: 2,
     borderRadius: 50,
     height: 100,
     width: 100,
+  },
+  close: {
+    backgroundColor: 'white',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+    borderRadius: 8,
+    height: 40,
+  },
+  closeText: {
+    color: 'black',
+    fontWeight: 'bold',
+    fontSize: 14,
   },
 })
