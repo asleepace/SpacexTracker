@@ -6,15 +6,15 @@
  */
 
 import React from 'react'
-import {SafeAreaView, StatusBar, StyleSheet, useColorScheme} from 'react-native'
+import {SafeAreaView, StatusBar, StyleSheet} from 'react-native'
+import {SpacexLogo} from './src/components'
 import {LaunchController} from './src/controllers'
 
 const App = () => {
-  const isDarkMode = useColorScheme() === 'dark'
-
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+      <StatusBar barStyle={'light-content'} />
+      <SpacexLogo />
       <LaunchController />
     </SafeAreaView>
   )
