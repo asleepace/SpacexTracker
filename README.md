@@ -1,6 +1,6 @@
 # SpaceX Tracker
 
-A simple application for tracking various SpaceX launches.
+A simple application for tracking various SpaceX launches built using [react-native](https://reactnative.dev/) and [TypeScript](https://www.typescriptlang.org/). Best viewed on the iPhone 13!
 
 ![giphy](https://user-images.githubusercontent.com/10716803/171064457-b30bfcef-359e-43da-a9ec-da8495e8d3bb.GIF)
 
