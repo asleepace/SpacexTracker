@@ -1,5 +1,6 @@
-export {ErrorMessage} from './ErrorMessage'
+export {ErrorView} from './ErrorView'
 export {LabeledText} from './LabeledText'
 export {LaunchCell} from './LaunchCell'
+export {LoadingView} from './LoadingView'
 export {SearchBar} from './SearchBar'
 export {Text} from './Text'

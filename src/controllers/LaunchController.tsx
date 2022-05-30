@@ -1,6 +1,7 @@
 import React, {useCallback, useEffect, useState} from 'react'
-import {ScrollView} from 'react-native'
-import {LaunchCell, SearchBar} from '../components'
+import {FlatList} from 'react-native'
+import {LaunchCell, LoadingView, SearchBar} from '../components'
+import {ErrorView} from '../components/ErrorView'
 import {fetchLaunches} from '../graphql'
 import {useSearchFilter} from '../hooks'
 import type {Launch} from '../interfaces'
@@ -20,6 +21,7 @@ export const LaunchController = (_props: LaunchControllerProps) => {
   /* clear any errors and fetch the data */
   const onLoadData = useCallback(() => {
     setError(undefined)
+    setSearch('')
     fetchLaunches()
       .then(data => setLaunches(data))
       .catch(err => setError(err))
@@ -33,14 +35,44 @@ export const LaunchController = (_props: LaunchControllerProps) => {
   /* filter the launch data by any search queries */
   const filteredData = useSearchFilter(launches, search)
 
+  /* toggle the no search results found error */
+  useEffect(() => {
+    if (!error && !filteredData.length && launches.length)
+      setError(Error('No search results found!'))
+    else if (launches.length && filteredData.length && error)
+      setError(undefined)
+  }, [filteredData, launches, error])
+
+  /* helper variables which make the code easier to read */
+  const didEncounterErrorWhileLoading = Boolean(error)
+  const didStartLoadingLaunchData = Boolean(!launches?.length)
+
+  /* helper method for rendering the 3 states: error, loading, launches */
+  const RenderContent = () => {
+    if (didEncounterErrorWhileLoading)
+      return <ErrorView error={error} onReload={onLoadData} />
+    if (didStartLoadingLaunchData) return <LoadingView />
+    return (
+      <FlatList
+        data={filteredData}
+        renderItem={({item}) => <LaunchCell data={item} />}
+        keyExtractor={(item, index) => `${+item.launchDate}_${index}`}
+      />
+    )
+  }
+
   return (
     <>
       <SearchBar onSearch={setSearch} />
-      <ScrollView contentInsetAdjustmentBehavior="automatic">
-        {filteredData.map(data => {
-          return <LaunchCell data={data} key={data.uniqueKey} />
-        })}
-      </ScrollView>
+      <RenderContent />
     </>
   )
+}
+
+{
+  /* <ScrollView contentInsetAdjustmentBehavior="automatic">
+{filteredData.map(data => {
+  return <LaunchCell data={data} key={data.uniqueKey} />
+})}
+</ScrollView> */
 }
