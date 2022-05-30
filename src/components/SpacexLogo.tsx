@@ -9,7 +9,7 @@ export const SpacexLogo = ({onPress}: SpacexLogoProps) => (
   <TouchableOpacity onPress={() => onPress()}>
     <Image
       source={require('../../assets/logo.png')}
-      style={{height: 40, width: '100%'}}
+      style={{marginLeft: 20, height: 30, width: '100%'}}
       resizeMode={'contain'}
     />
   </TouchableOpacity>

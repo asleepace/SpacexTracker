@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
   },
   input: {
     color: 'white',
-    backgroundColor: 'black',
+    backgroundColor: 'rgba(0, 0, 0, 0.8)',
     paddingHorizontal: 8,
     paddingVertical: 8,
     borderRadius: 8,

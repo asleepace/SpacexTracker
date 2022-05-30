@@ -3,12 +3,6 @@ import {StyleSheet, TouchableOpacity, View} from 'react-native'
 import type {Launch} from '../interfaces'
 import {LabeledText} from './LabeledText'
 
-const DATE_FORMAT = {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-}
-
 interface LaunchCellProps {
   data: Launch
 }
@@ -59,7 +53,12 @@ const LaunchCellCollapsed = ({data}: LaunchCellProps) => {
  * site, mission name, mission id, and localized date and time.
  */
 const LaunchCellExpanded = ({data}: LaunchCellProps) => {
-  const localizedDate = data.launchDate.toLocaleDateString('en-US', DATE_FORMAT)
+  // @TODO: move this into the parseGraphQL step
+  const localizedDate = data.launchDate.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  })
   const localizedTime = data.launchDate.toLocaleTimeString()
   return (
     <View style={styles.container}>
@@ -102,7 +101,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 16,
     paddingBottom: 8,
-    backgroundColor: '#111',
+    backgroundColor: 'rgba(0, 0, 0, 0.8)',
     borderRadius: 8,
     marginBottom: 16,
     paddingTop: 8,
