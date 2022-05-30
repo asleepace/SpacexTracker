@@ -19,7 +19,7 @@ const parseLaunchData = (data: LaunchResponse): Launch[] =>
     missionId: raw.mission_id[0] || 'NONE',
     missionName: raw.mission_name,
     launchSite: raw.launch_site.site_name,
-    launchDate: raw.launch_date_local,
+    launchDate: new Date(raw.launch_date_local),
     rocketName: raw.rocket.rocket_name,
     rocketCompany: raw.rocket.rocket.company,
     rocketMass: raw.rocket.rocket.mass.kg,

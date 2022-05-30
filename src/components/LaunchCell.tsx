@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {StyleSheet, TouchableOpacity, View} from 'react-native'
-import {Launch} from '../interfaces/launches'
+import type {Launch} from '../interfaces'
 import {Text} from './Text'
 
 const DATE_FORMAT = {

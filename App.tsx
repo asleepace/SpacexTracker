@@ -16,6 +16,7 @@ import {
 import {LaunchCell} from './src/components/'
 import {SearchBar} from './src/components/SearchBar'
 import {fetchLaunches} from './src/graphql'
+import {useSearchFilter} from './src/hooks/useSearchFilter'
 import {Launch} from './src/interfaces'
 
 const App = () => {
@@ -30,26 +31,16 @@ const App = () => {
       .catch(error => console.warn(error))
   }, [])
 
-  const searchTerm = search ? search.toLowerCase() : ''
-
-  console.log({launches})
+  const filteredData = useSearchFilter(launches, search)
 
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <SearchBar onSearch={setSearch} />
       <ScrollView contentInsetAdjustmentBehavior="automatic">
-        {launches
-          .filter(data => {
-            const rocketName = data.rocket.rocket_name.toLowerCase()
-            const launchSite = data.launch_site.site_name.toLowerCase()
-            return (
-              rocketName.includes(searchTerm) || launchSite.includes(searchTerm)
-            )
-          })
-          .map(data => {
-            return <LaunchCell data={data} />
-          })}
+        {filteredData.map(data => {
+          return <LaunchCell data={data} />
+        })}
       </ScrollView>
     </SafeAreaView>
   )
