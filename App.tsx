@@ -8,13 +8,14 @@
 import React from 'react'
 import {SafeAreaView, StatusBar, StyleSheet} from 'react-native'
 import {SpacexLogo} from './src/components'
-import {LaunchController} from './src/controllers'
+import {AboutMeController, LaunchController} from './src/controllers'
 
 const App = () => {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle={'light-content'} />
       <SpacexLogo />
+      <AboutMeController />
       <LaunchController />
     </SafeAreaView>
   )
