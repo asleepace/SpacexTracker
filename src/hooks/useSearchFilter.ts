@@ -7,13 +7,11 @@ import {Launch} from '../interfaces/launches'
  */
 export const useSearchFilter = (data: Launch[], query: string | undefined) => {
   return useMemo(() => {
-    // if no search query then we can just return the data as normal
+    /* if no search query then we can just return the data as normal */
     if (!query || query.length === 0) return data
-    // convert the search term to lowercase for more uniform filtering
-    // do this once outside the filter method.
+    /* all comparisons are done using lowercase strings */
     const searchTerm = query.toLowerCase()
-    // filter any elements that include the query and perform the filtering
-    // for both launchSite and rocketName with lowercase strings.
+    /* return any elements which include the search query */
     return data.filter(item => {
       const launchSite = item.launchSite.toLowerCase()
       const rocketName = item.rocketName.toLowerCase()

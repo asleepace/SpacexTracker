@@ -8,8 +8,13 @@ interface LabeledTextProps {
   align?: 'left' | 'right'
 }
 
+/**
+ * A simple component for displayed text with a corresponding label that appears
+ * underneath. Takes an optional parameter to set the alignment to either the
+ * left or right.
+ */
 export const LabeledText = ({label, text, align}: LabeledTextProps) => {
-  const alignStyle = align === 'right' ? styles.rightAlign : styles.leftAlign
+  const alignStyle = align === 'right' && styles.rightAlign
   return (
     <View style={[styles.container, alignStyle]}>
       <Text type={'large'} style={styles.margin}>

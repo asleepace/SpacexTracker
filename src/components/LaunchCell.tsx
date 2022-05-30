@@ -13,6 +13,11 @@ interface LaunchCellProps {
   data: Launch
 }
 
+/**
+ * Displays a collapsed cell of launch data which includes the rocket name and
+ * launch site. When tapped this will expand to show the rest of the launch
+ * details until tapped again.
+ */
 export const LaunchCell = ({data}: LaunchCellProps) => {
   const [isExpanded, setIsExpanded] = useState(false)
   return (
@@ -27,7 +32,7 @@ export const LaunchCell = ({data}: LaunchCellProps) => {
 }
 
 /**
- * Launch Cell
+ * Launch Cell (Collapsed)
  * This component displays data about a rocket and its upcoming launches, if the user
  * taps on this rocket then it will expand to show more details about the launch.
  */
@@ -48,6 +53,11 @@ const LaunchCellCollapsed = ({data}: LaunchCellProps) => {
   )
 }
 
+/**
+ * Launch Cell (Expanded)
+ * Displays all of the launches data including the rocket name, company, mass, launch
+ * site, mission name, mission id, and localized date and time.
+ */
 const LaunchCellExpanded = ({data}: LaunchCellProps) => {
   const localizedDate = data.launchDate.toLocaleDateString('en-US', DATE_FORMAT)
   const localizedTime = data.launchDate.toLocaleTimeString()

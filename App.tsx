@@ -5,43 +5,17 @@
  * A simple application for tracking SpaceX shuttle launches.
  */
 
-import React, {useEffect, useState} from 'react'
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  useColorScheme,
-} from 'react-native'
-import {LaunchCell} from './src/components/'
-import {SearchBar} from './src/components/SearchBar'
-import {fetchLaunches} from './src/graphql'
-import {useSearchFilter} from './src/hooks/useSearchFilter'
-import {Launch} from './src/interfaces'
+import React from 'react'
+import {SafeAreaView, StatusBar, StyleSheet, useColorScheme} from 'react-native'
+import {LaunchController} from './src/controllers'
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark'
 
-  const [launches, setLaunches] = useState<Launch[]>([])
-  const [search, setSearch] = useState<string>()
-
-  useEffect(() => {
-    fetchLaunches()
-      .then(data => setLaunches(data))
-      .catch(error => console.warn(error))
-  }, [])
-
-  const filteredData = useSearchFilter(launches, search)
-
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <SearchBar onSearch={setSearch} />
-      <ScrollView contentInsetAdjustmentBehavior="automatic">
-        {filteredData.map(data => {
-          return <LaunchCell data={data} />
-        })}
-      </ScrollView>
+      <LaunchController />
     </SafeAreaView>
   )
 }

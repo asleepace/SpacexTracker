@@ -41,4 +41,5 @@ export interface Launch {
   rocketName: string
   rocketCompany: string
   rocketMass: number
+  uniqueKey: string
 }

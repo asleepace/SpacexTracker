@@ -7,31 +7,28 @@ import {queryLaunches} from './launches'
  * for fetching launches.
  */
 export const fetchLaunches = () =>
-  fetchGraphQL(queryLaunches).then(parseLaunchData).then(sortLaunchData)
+  fetchGraphQL(queryLaunches).then(parseLaunchData)
 
 /**
  * Parses the raw launch data into a more readable and TypeScript friendly
  * manner, this way we only need to handle edge cases such as undefined
  * missionIds once.
  */
-const parseLaunchData = (data: LaunchResponse): Launch[] =>
-  data.launches.map(raw => ({
-    missionId: raw.mission_id[0] || 'NONE',
-    missionName: raw.mission_name,
-    launchSite: raw.launch_site.site_name,
-    launchDate: new Date(raw.launch_date_local),
-    rocketName: raw.rocket.rocket_name,
-    rocketCompany: raw.rocket.rocket.company,
-    rocketMass: raw.rocket.rocket.mass.kg,
-  }))
-
-/**
- * After we have parsed the raw launch data, we want to sort by the date on
- * the first pass as some of the items in the raw data are out of order.
- */
-const sortLaunchData = (data: Launch[]) =>
-  data.sort((launchOne, launchTwo) => {
-    if (launchOne < launchTwo) return 1
-    if (launchOne > launchTwo) return -1
-    return 0
+const parseLaunchData = (data: LaunchResponse): Launch[] => {
+  return data.launches.map(raw => {
+    const launchDate = new Date(raw.launch_date_local)
+    const launchSite = raw.launch_site.site_name
+    const missionId = raw.mission_id[0] || 'NONE'
+    const uniqueKey = `${launchSite}_${+launchDate}`.replace(/[\W_]+/g, ' ')
+    return {
+      missionName: raw.mission_name,
+      rocketName: raw.rocket.rocket_name,
+      rocketCompany: raw.rocket.rocket.company,
+      rocketMass: raw.rocket.rocket.mass.kg,
+      launchSite,
+      launchDate,
+      missionId,
+      uniqueKey,
+    }
   })
+}
