@@ -14,8 +14,9 @@ interface LaunchCellProps {
  */
 export const LaunchCell = ({data}: LaunchCellProps) => {
   const [isExpanded, setIsExpanded] = useState(false)
+  const onPress = () => setIsExpanded(!isExpanded)
   return (
-    <TouchableOpacity onPress={() => setIsExpanded(!isExpanded)}>
+    <TouchableOpacity onPress={onPress} delayPressIn={0.3}>
       {isExpanded ? (
         <LaunchCellExpanded data={data} />
       ) : (
