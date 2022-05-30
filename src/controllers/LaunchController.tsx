@@ -70,14 +70,17 @@ export const LaunchController = (_props: LaunchControllerProps) => {
   }
 
   return (
-    <>
+    <View style={styles.container}>
       <SearchBar onSearch={setSearch} />
       <RenderContent />
-    </>
+    </View>
   )
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   list: {
     paddingHorizontal: 16,
   },

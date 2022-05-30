@@ -17,7 +17,7 @@ export const ScreenContainer: React.FC<{}> = props => {
       source={require('../../assets/background.jpg')}
       resizeMode={'cover'}
       style={styles.container}>
-      <SafeAreaView>
+      <SafeAreaView style={styles.content}>
         <StatusBar barStyle={'light-content'} />
         {props.children}
       </SafeAreaView>
@@ -37,5 +37,8 @@ const styles = StyleSheet.create({
     right: 0,
     left: 0,
     top: 0,
+  },
+  content: {
+    flex: 1,
   },
 })

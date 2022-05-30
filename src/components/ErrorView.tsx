@@ -7,14 +7,18 @@ interface ErrorViewProps {
   error?: Error
 }
 
+/**
+ * Displays an error message along with a button that allows the user to
+ * reload the data.
+ */
 export const ErrorView = ({onReload, error}: ErrorViewProps) => {
-  const errorMessage = error?.message ?? 'There was an error loading the data!'
+  const errorMessage = error?.message || 'There was an error loading the data!'
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{'Uh oh!'}</Text>
-      <Text>{error?.message}</Text>
+      <Text style={styles.detail}>{errorMessage}</Text>
       <TouchableOpacity style={styles.button} onPress={() => onReload()}>
-        <Text>{'RELOAD'}</Text>
+        <Text style={styles.detail}>{'RELOAD'}</Text>
       </TouchableOpacity>
     </View>
   )
@@ -24,12 +28,17 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
     alignItems: 'center',
-    flex: 1,
+    height: '100%',
   },
   title: {
     fontWeight: 'bold',
     marginBottom: 16,
+    color: 'white',
     fontSize: 18,
+  },
+  detail: {
+    fontSize: 14,
+    color: 'white',
   },
   button: {
     borderWidth: StyleSheet.hairlineWidth,
