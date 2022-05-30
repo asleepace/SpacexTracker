@@ -2,6 +2,8 @@
 
 A simple application for tracking various SpaceX launches.
 
+![giphy](https://user-images.githubusercontent.com/10716803/171064457-b30bfcef-359e-43da-a9ec-da8495e8d3bb.GIF)
+
 ## Prerequisites
 
 Make sure you are using the new react-native development environment [outlined here](https://reactnative.dev/docs/next/environment-setup) along with the following:
