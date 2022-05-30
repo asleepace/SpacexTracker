@@ -1,7 +1,6 @@
 import React, {useCallback, useEffect, useState} from 'react'
 import {FlatList, RefreshControl} from 'react-native'
-import {LaunchCell, LoadingView, SearchBar} from '../components'
-import {ErrorView} from '../components/ErrorView'
+import {ErrorView, LaunchCell, LoadingView, SearchBar} from '../components'
 import {fetchLaunches} from '../graphql'
 import {useSearchFilter} from '../hooks'
 import type {Launch} from '../interfaces'
@@ -74,12 +73,4 @@ export const LaunchController = (_props: LaunchControllerProps) => {
       <RenderContent />
     </>
   )
-}
-
-{
-  /* <ScrollView contentInsetAdjustmentBehavior="automatic">
-{filteredData.map(data => {
-  return <LaunchCell data={data} key={data.uniqueKey} />
-})}
-</ScrollView> */
 }
