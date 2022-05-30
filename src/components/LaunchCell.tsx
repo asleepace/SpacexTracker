@@ -51,7 +51,7 @@ const LaunchCellExpanded = ({data}: LaunchCellProps) => {
         </Text>
         <Text type={'small'}>{'COMPANY NAME'}</Text>
         <Text type={'large'} style={styles.margin}>
-          {data.rocket.mass}
+          {`${data.rocket.rocket.mass.kg} kg`}
         </Text>
         <Text type={'small'}>{'ROCKET MASS'}</Text>
       </View>

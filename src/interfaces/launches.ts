@@ -20,11 +20,11 @@ export interface Launch {
   rocket: {
     rocket: {
       company: string
+      name: string
+      mass: {
+        kg: number
+      }
     }
-    mass: {
-      kg: number
-    }
-    name: string
     rocket_name: string
   }
 }

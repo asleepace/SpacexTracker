@@ -22,7 +22,6 @@ const App = () => {
   const isDarkMode = useColorScheme() === 'dark'
 
   const [launches, setLaunches] = useState<Launch[]>([])
-  const [filtered, setFiltered] = useState<Launch[]>([])
   const [search, setSearch] = useState<string>()
 
   useEffect(() => {
@@ -31,22 +30,9 @@ const App = () => {
       .catch(error => console.warn(error))
   }, [])
 
-  useEffect(() => {
-    if (!search) {
-      setFiltered([])
-      return
-    }
-    const searchTerm = search?.toLowerCase()
-    const output = launches.filter(data => {
-      const rocketName = data.rocket.rocket_name.toLowerCase()
-      const launchSite = data.launch_site.site_name.toLowerCase()
-      return rocketName.includes(searchTerm) || launchSite.includes(searchTerm)
-    })
-
-    setFiltered(output)
-  }, [search, launches])
-
   const searchTerm = search ? search.toLowerCase() : ''
+
+  console.log({launches})
 
   return (
     <SafeAreaView style={styles.container}>
