@@ -16,7 +16,7 @@ export const ErrorView = ({onReload, error}: ErrorViewProps) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{'Uh oh!'}</Text>
-      <Text style={styles.detail}>{errorMessage}</Text>
+      <Text style={[styles.detail, styles.spacer]}>{errorMessage}</Text>
       <TouchableOpacity style={styles.button} onPress={() => onReload()}>
         <Text style={styles.detail}>{'RELOAD'}</Text>
       </TouchableOpacity>
@@ -28,17 +28,18 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
     alignItems: 'center',
-    height: '100%',
+    flex: 1,
   },
   title: {
-    fontWeight: 'bold',
-    marginBottom: 16,
     color: 'white',
-    fontSize: 18,
+    fontSize: 24,
   },
   detail: {
-    fontSize: 14,
+    fontSize: 16,
     color: 'white',
+  },
+  spacer: {
+    paddingVertical: 32,
   },
   button: {
     borderWidth: StyleSheet.hairlineWidth,
