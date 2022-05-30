@@ -59,7 +59,7 @@ The application roughyl follows the MVC paradigm with the following project stru
   - `./src/controllers` contains view controllers
   - `./src/graphql` contains graphql logic
   - `./src/hooks` contains react hooks
-  - `./src/interface` contains typescript definitions
+  - `./src/interfaces` contains typescript definitions
 
 ## Troubleshooting
 
