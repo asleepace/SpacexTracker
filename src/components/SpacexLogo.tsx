@@ -5,6 +5,10 @@ interface SpacexLogoProps {
   onPress(): void
 }
 
+/**
+ * Displays the SpaceX logo which can trigger an action when pressed.
+ * The image a bit off-center, so a marginLeft is added.
+ */
 export const SpacexLogo = ({onPress}: SpacexLogoProps) => (
   <TouchableOpacity onPress={() => onPress()}>
     <Image
