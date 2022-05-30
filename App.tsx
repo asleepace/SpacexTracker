@@ -13,6 +13,7 @@ import {
   StyleSheet,
   useColorScheme,
 } from 'react-native'
+import {LaunchCell} from './src/components/'
 import {fetchLaunches} from './src/graphql'
 import {Launch} from './src/interfaces'
 
@@ -31,7 +32,11 @@ const App = () => {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView contentInsetAdjustmentBehavior="automatic" />
+      <ScrollView contentInsetAdjustmentBehavior="automatic">
+        {launches.map(data => {
+          return <LaunchCell data={data} />
+        })}
+      </ScrollView>
     </SafeAreaView>
   )
 }
