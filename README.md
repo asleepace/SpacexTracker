@@ -77,7 +77,7 @@ The application roughyl follows the MVC paradigm with the following project stru
 
 - <b>Model View Controller (MVC)</b>: while this project doesn't strictly adhere MVC principles, the core idea is we have our modeled data (found in `./graphql`) which is used by the controllers to populate the various components. Each element found in `./components/` is not concerned with any business logic, just data and functions that are passed as props.
 
-- <b>Don't Repeat Yourself (DRY)</b>: the component directory is quite larger than I originally expected, but the purpose of this is to break down each `ui` element into its atomic parts so that they may be re-used.
+- <b>Don't Repeat Yourself (DRY)</b>: the component directory is quite a bit larger than I originally expected, but the purpose of this is to break down each `ui` element into its atomic parts so that they may be re-used.
 
 - <b>Encapsulation</b>: A major theme for this implementation is encapsulation, with only items others may be concerned with exported from a file or from a directories `index.ts`. This means if it isn't exported, then it shouldn't concern the parent or caller.
 
