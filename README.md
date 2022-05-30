@@ -73,6 +73,16 @@ The application roughyl follows the MVC paradigm with the following project stru
     - `hooks` contains react hooks
     - `interfaces` contains typescript definitions
 
+## Design Considerations
+
+- <b>Model View Controller (MVC)</b>: while this project doesn't strictly adhere MVC principles, the core idea is we have our modeled data (found in `./graphql`) which is used by the controllers to populate the various components. Each element found in `./components/` is not concerned with any business logic, just data and functions that are passed as props.
+
+- <b>Don't Repeat Yourself (DRY)</b>: the component directory is quite larger than I originally expected, but the purpose of this is to break down each `ui` element into its atomic parts so that they may be re-used.
+
+- <b>Encapsulation</b>: A major theme for this implementation is encapsulation, with only items others may be concerned with exported from a file or from a directories `index.ts`. This means if it isn't exported, then it shouldn't concern the parent or caller.
+
+- <b>Single Page Application (SPA)</b>: you may notice that there is no navigation system as I felt this would most likely be overkill, instead I opted to try and make use of the various hooks such as `useImperativeHandle` to demo my ability to comprehend react vs. implement a library.
+
 ## Troubleshooting
 
 As mentioned above the `npx react-native run-ios` command may fail the first time, in this case open the Xcode workspace and build normally:
