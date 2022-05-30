@@ -65,10 +65,10 @@ The application roughyl follows the MVC paradigm with the following project stru
 
 As mentioned above the `npx react-native run-ios` command may fail the first time, in this case open the Xcode workspace and build normally:
 
-```
+```bash
 open ./ios/SpacexTracker.xcworkspace
 ```
 
-Afterwards, this command should work normally.
+Afterwards, this command should work normally!
 
 https://reactnative.dev/docs/troubleshooting
