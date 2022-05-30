@@ -16,9 +16,6 @@ module.exports = {
     'react-native/no-inline-styles': 0, // disallow styles declared within the component itself
     semi: 0,
     'space-before-function-paren': ['off', 'always'],
-    '@typescript-eslint/no-unused-vars': [
-      'error',
-      {varsIgnorePattern: '^_', argsIgnorePattern: '^_'},
-    ],
+    '@typescript-eslint/no-unused-vars': 'off',
   },
 }
