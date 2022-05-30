@@ -51,6 +51,7 @@ export const LaunchController = (_props: LaunchControllerProps) => {
     if (didEncounterErrorWhileLoading)
       return <ErrorView error={error} onReload={onLoadData} />
     if (didStartLoadingLaunchData) return <LoadingView />
+    /* no refreshing if the user is searching */
     return (
       <FlatList
         data={filteredData}
@@ -59,11 +60,13 @@ export const LaunchController = (_props: LaunchControllerProps) => {
         ListFooterComponent={<View style={styles.spacer} />}
         style={styles.list}
         refreshControl={
-          <RefreshControl
-            refreshing={didStartLoadingLaunchData}
-            colors={['white', 'white']}
-            onRefresh={onLoadData}
-          />
+          search ? undefined : (
+            <RefreshControl
+              refreshing={didStartLoadingLaunchData}
+              colors={['white', 'white']}
+              onRefresh={onLoadData}
+            />
+          )
         }
       />
     )

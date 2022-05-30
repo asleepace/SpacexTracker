@@ -5,6 +5,10 @@ interface SearchBarProps {
   onSearch(filter: string): void
 }
 
+/**
+ * A simple text input which allows the user to filter data by a certain
+ * value, shows the dismiss button while editing.
+ */
 export const SearchBar = ({onSearch}: SearchBarProps) => {
   return (
     <View style={styles.container}>
@@ -12,7 +16,7 @@ export const SearchBar = ({onSearch}: SearchBarProps) => {
         placeholder={'Search by name, launch site, etc...'}
         onChangeText={text => onSearch(text)}
         placeholderTextColor={'rgba(255, 255, 255, 0.3)'}
-        clearTextOnFocus={true}
+        clearButtonMode={'while-editing'}
         style={styles.input}
       />
     </View>
