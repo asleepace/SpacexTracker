@@ -2,6 +2,9 @@ import type {Launch, LaunchResponse} from '../interfaces'
 import {fetchGraphQL} from './fetchGraphQL'
 import {queryLaunches} from './launches'
 
+/** Regex to find all non-alphanumeric characters */
+const NON_ALPHANUMERIC = new RegExp(/[\W_]+/g)
+
 /**
  * This method combines the generic fetchGraphQL request with the query
  * for fetching launches.
@@ -25,7 +28,10 @@ const parseLaunchData = (data: LaunchResponse): Launch[] => {
     const launchDate = new Date(raw.launch_date_local)
     const launchSite = raw.launch_site.site_name
     const missionId = raw.mission_id[0] || 'NONE'
-    const uniqueKey = `${launchSite}_${+launchDate}`.replace(/[\W_]+/g, ' ')
+    const uniqueKey = `${launchSite}_${+launchDate}`.replace(
+      NON_ALPHANUMERIC,
+      '_',
+    )
     return {
       missionName: raw.mission_name,
       rocketName: raw.rocket.rocket_name,

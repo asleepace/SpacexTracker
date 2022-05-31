@@ -56,7 +56,7 @@ export const LaunchController = (_props: LaunchControllerProps) => {
       <FlatList
         data={filteredData}
         renderItem={({item}) => <LaunchCell data={item} />}
-        keyExtractor={(item, index) => `${+item.launchDate}_${index}`}
+        keyExtractor={(item, index) => `${item.uniqueKey}_${index}`}
         ListFooterComponent={<View style={styles.spacer} />}
         style={styles.list}
         refreshControl={
