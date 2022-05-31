@@ -95,6 +95,8 @@ These are very limited in scope and just check if the components render as expec
 
 ## Troubleshooting
 
+> error Failed to build iOS project. We ran "xcodebuild" command but it exited with error code 65. To debug build logs further, consider building your app with Xcode.app, by opening SpacexTracker.xcworkspace.
+
 As mentioned above the `npx react-native run-ios` command may fail the first time, in this case open the Xcode workspace and build normally:
 
 ```bash

@@ -7,7 +7,13 @@ import {queryLaunches} from './launches'
  * for fetching launches.
  */
 export const fetchLaunches = () =>
-  fetchGraphQL(queryLaunches).then(parseLaunchData)
+  fetchGraphQL(queryLaunches)
+    .then(parseLaunchData)
+    .then(data => {
+      console.log(data.map(item => item.uniqueKey))
+
+      return data
+    })
 
 /**
  * Parses the raw launch data into a more readable and TypeScript friendly
