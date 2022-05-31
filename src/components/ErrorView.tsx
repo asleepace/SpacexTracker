@@ -1,5 +1,6 @@
 import React from 'react'
 import {StyleSheet, TouchableOpacity, View} from 'react-native'
+import {System} from '../utils'
 import {Text} from './Text'
 
 interface ErrorViewProps {
@@ -32,23 +33,23 @@ const styles = StyleSheet.create({
   },
   title: {
     color: 'white',
-    fontSize: 24,
+    fontSize: System.unit * 3,
   },
   detail: {
     fontSize: 16,
-    color: 'white',
+    color: System.color,
   },
   spacer: {
-    paddingVertical: 32,
+    paddingVertical: System.unit * 4,
   },
   button: {
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: 'white',
     justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 32,
-    paddingVertical: 8,
-    borderRadius: 8,
-    marginTop: 16,
+    paddingHorizontal: System.unit * 4,
+    paddingVertical: System.unit,
+    borderRadius: System.unit,
+    marginTop: System.unit * 2,
   },
 })

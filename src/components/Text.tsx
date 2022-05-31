@@ -4,6 +4,7 @@ import {
   Text as BaseText,
   TextProps as BaseTextProps,
 } from 'react-native'
+import {System} from '../utils'
 
 /**
  * Extends the normal TextProps with a type attribute that is used to set
@@ -25,16 +26,16 @@ export const Text = (props: TextProps) => {
 
 const styles = StyleSheet.create({
   text: {
-    color: 'white',
+    color: System.color,
   },
   small: {
-    fontSize: 10,
+    fontSize: System.unit * 1.25,
     fontWeight: 'bold',
-    color: '#888',
+    color: System.foregroundLight,
   },
   large: {
-    fontSize: 14,
-    fontWeight: '500',
-    color: 'white',
+    fontSize: System.unit * 2,
+    fontWeight: 'bold',
+    color: System.color,
   },
 })

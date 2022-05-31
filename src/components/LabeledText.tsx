@@ -1,5 +1,6 @@
 import React from 'react'
 import {StyleSheet, View} from 'react-native'
+import {System} from '../utils'
 import {Text} from './Text'
 
 interface LabeledTextProps {
@@ -20,7 +21,9 @@ export const LabeledText = ({label, text, align}: LabeledTextProps) => {
       <Text type={'large'} style={styles.margin}>
         {text}
       </Text>
-      <Text type={'small'}>{label?.toUpperCase()}</Text>
+      <Text style={styles.margin} type={'small'}>
+        {label?.toUpperCase()}
+      </Text>
     </View>
   )
 }
@@ -33,9 +36,9 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
   },
   container: {
-    marginBottom: 8,
+    marginBottom: System.unit,
   },
   margin: {
-    marginTop: 8,
+    marginTop: System.unit,
   },
 })

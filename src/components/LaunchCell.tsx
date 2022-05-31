@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {StyleSheet, TouchableOpacity, View} from 'react-native'
 import type {Launch} from '../interfaces'
+import {System} from '../utils'
 import {LabeledText} from './LabeledText'
 
 interface LaunchCellProps {
@@ -100,12 +101,12 @@ const styles = StyleSheet.create({
     minHeight: 60,
     flexDirection: 'row',
     justifyContent: 'center',
-    paddingHorizontal: 16,
-    paddingBottom: 8,
-    backgroundColor: 'rgba(0, 0, 0, 0.8)',
-    borderRadius: 8,
-    marginBottom: 16,
-    paddingTop: 8,
+    paddingHorizontal: System.unit * 2,
+    paddingBottom: System.unit,
+    backgroundColor: System.backgroundColor,
+    borderRadius: System.unit,
+    marginBottom: System.unit * 2,
+    paddingTop: System.unit,
   },
   rocket: {
     flex: 1,
@@ -115,6 +116,6 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
   },
   margin: {
-    marginTop: 8,
+    marginTop: System.unit,
   },
 })

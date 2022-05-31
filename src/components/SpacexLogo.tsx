@@ -1,5 +1,6 @@
 import React from 'react'
 import {Image, StyleSheet, TouchableOpacity} from 'react-native'
+import {System} from '../utils'
 
 interface SpacexLogoProps {
   onPress(): void
@@ -21,9 +22,9 @@ export const SpacexLogo = ({onPress}: SpacexLogoProps) => (
 
 const styles = StyleSheet.create({
   logo: {
-    marginVertical: 16,
+    marginVertical: System.unit * 2,
     marginLeft: 20,
-    height: 30,
+    height: System.unit * 4,
     width: '100%',
   },
 })

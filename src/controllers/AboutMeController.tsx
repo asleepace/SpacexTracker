@@ -33,13 +33,16 @@ export const AboutMeController = React.forwardRef((_props, ref) => {
           resizeMode={'cover'}
           style={styles.colin}
         />
-        <LabeledText label={'name'} text={'Colin Teahan'} />
+        <LabeledText label={'full name'} text={'Colin Teahan'} />
         <LabeledText label={'phone number'} text={'+1 (415) 302-7992'} />
         <LabeledText label={'email address'} text={'colin_teahan@yahoo.com'} />
-        <LabeledText label={'location'} text={'San Francisco, CA'} />
-        <LabeledText label={'github'} text={'https://github.com/asleepace'} />
+        <LabeledText label={'current location'} text={'San Francisco, CA'} />
         <LabeledText
-          label={'linkedin'}
+          label={'github url'}
+          text={'https://github.com/asleepace'}
+        />
+        <LabeledText
+          label={'linkedin url'}
           text={'https://www.linkedin.com/in/colin-teahan/'}
         />
         <TouchableOpacity

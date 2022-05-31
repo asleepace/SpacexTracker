@@ -1,5 +1,6 @@
 import React from 'react'
 import {ActivityIndicator, StyleSheet, View} from 'react-native'
+import {System} from '../utils'
 import {Text} from './Text'
 
 /**
@@ -19,7 +20,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   message: {
-    fontSize: 18,
-    marginBottom: 16,
+    fontSize: System.unit * 2,
+    marginBottom: System.unit * 2,
   },
 })

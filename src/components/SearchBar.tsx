@@ -1,5 +1,6 @@
 import React from 'react'
 import {StyleSheet, TextInput, View} from 'react-native'
+import {System} from '../utils'
 
 interface SearchBarProps {
   onSearch(filter: string): void
@@ -15,7 +16,7 @@ export const SearchBar = ({onSearch}: SearchBarProps) => {
       <TextInput
         placeholder={'Search by name, launch site, etc...'}
         onChangeText={text => onSearch(text)}
-        placeholderTextColor={'rgba(255, 255, 255, 0.3)'}
+        placeholderTextColor={System.foregroundLight}
         clearButtonMode={'while-editing'}
         style={styles.input}
       />
@@ -25,14 +26,14 @@ export const SearchBar = ({onSearch}: SearchBarProps) => {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 16,
-    minHeight: 60,
+    padding: System.unit * 2,
+    minHeight: System.unit * 8,
   },
   input: {
-    color: 'white',
-    backgroundColor: 'rgba(0, 0, 0, 0.8)',
-    paddingHorizontal: 8,
-    paddingVertical: 8,
-    borderRadius: 8,
+    color: System.color,
+    backgroundColor: System.backgroundColor,
+    paddingHorizontal: System.unit,
+    paddingVertical: System.unit,
+    borderRadius: System.unit,
   },
 })
