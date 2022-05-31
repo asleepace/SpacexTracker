@@ -83,6 +83,8 @@ The application roughyl follows the MVC paradigm with the following project stru
 
 - <b>Single Page Application (SPA)</b>: you may notice that there is no navigation system as I felt this would most likely be overkill, instead I opted to try and make use of the various hooks such as `useImperativeHandle` to demo my ability to comprehend react vs. implement a library.
 
+- <b>Extendable</b>: the main thing if this application is build to grow, meaning that if we want to switch the color scheme from dark mode to light mode, all we need to do is update the `./utils/system.ts` constants. This also includes a base unit of 8px which dictacts how(\*) the margins, padding, font size, spacing, etc. are calculated.
+
 ## Unit Tests
 
 To run unit tests navigate to the root directory and run the following command:
