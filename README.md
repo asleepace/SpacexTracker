@@ -72,6 +72,7 @@ The application roughly follows the MVC paradigm with the following project stru
     - `graphql` contains graphql logic
     - `hooks` contains react hooks
     - `interfaces` contains typescript definitions
+    - `utils` contains utility items
 
 ## Design Considerations
 
