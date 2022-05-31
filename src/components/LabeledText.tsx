@@ -3,8 +3,8 @@ import {StyleSheet, View} from 'react-native'
 import {Text} from './Text'
 
 interface LabeledTextProps {
-  label: string
-  text: string
+  label?: string
+  text?: string
   align?: 'left' | 'right'
 }
 
@@ -20,7 +20,7 @@ export const LabeledText = ({label, text, align}: LabeledTextProps) => {
       <Text type={'large'} style={styles.margin}>
         {text}
       </Text>
-      <Text type={'small'}>{label.toUpperCase()}</Text>
+      <Text type={'small'}>{label?.toUpperCase()}</Text>
     </View>
   )
 }

@@ -3,7 +3,7 @@ import {StyleSheet, TouchableOpacity, View} from 'react-native'
 import {Text} from './Text'
 
 interface ErrorViewProps {
-  onReload(): void
+  onReload?(): void
   error?: Error
 }
 
@@ -17,7 +17,7 @@ export const ErrorView = ({onReload, error}: ErrorViewProps) => {
     <View style={styles.container}>
       <Text style={styles.title}>{'Uh oh!'}</Text>
       <Text style={[styles.detail, styles.spacer]}>{errorMessage}</Text>
-      <TouchableOpacity style={styles.button} onPress={() => onReload()}>
+      <TouchableOpacity style={styles.button} onPress={() => onReload?.()}>
         <Text style={styles.detail}>{'RELOAD'}</Text>
       </TouchableOpacity>
     </View>
