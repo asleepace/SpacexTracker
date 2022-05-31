@@ -21,7 +21,11 @@ interface TextProps extends BaseTextProps {
  */
 export const Text = (props: TextProps) => {
   const styleType = props.type === 'small' ? styles.small : styles.large
-  return <BaseText style={[styleType, props.style]}>{props.children}</BaseText>
+  return (
+    <BaseText style={[styleType, props.style]} dataDetectorType={'all'}>
+      {props.children}
+    </BaseText>
+  )
 }
 
 const styles = StyleSheet.create({
