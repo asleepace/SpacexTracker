@@ -62,7 +62,7 @@ If anything should fail to load either click the reload button or pull down to r
 
 ## Project Structure
 
-The application roughyl follows the MVC paradigm with the following project strucure. The heavy lifting is done by the controllers which tie together the business logic, user interface and data together. Each directory has an `index.ts` file for easier imports.
+The application roughly follows the MVC paradigm with the following project structure. The heavy lifting is done by the controllers which tie together the business logic, user interface and data together. Each directory has an `index.ts` file for easier imports.
 
 - `App.tsx` root of the application
   - `assets` contains static image files
@@ -79,11 +79,11 @@ The application roughyl follows the MVC paradigm with the following project stru
 
 - <b>Don't Repeat Yourself (DRY)</b>: the component directory is quite a bit larger than I originally expected, but the purpose of this is to break down each `ui` element into its atomic parts so that they may be re-used and make use of inheritance by composition.
 
-- <b>Encapsulation</b>: A major theme for this implementation is encapsulation, with only items others may be concerned with exported from a file or from a directories `index.ts`. This means if it isn't exported, then it shouldn't concern the parent or caller.
+- <b>Encapsulation</b>: a major theme for this implementation is encapsulation, with only items others may be concerned with exported from a file or from a directories `index.ts`. This means if it isn't exported, then it shouldn't concern the parent or caller.
 
 - <b>Single Page Application (SPA)</b>: you may notice that there is no navigation system as I felt this would most likely be overkill, instead I opted to try and make use of the various hooks such as `useImperativeHandle` to demo my ability to comprehend react vs. implement a library.
 
-- <b>Extendable</b>: the main thing if this application is build to grow, meaning that if we want to switch the color scheme from dark mode to light mode, all we need to do is update the `./utils/system.ts` constants. This also includes a base unit of 8px which dictacts how(\*) the margins, padding, font size, spacing, etc. are calculated. Along with our GraphQL logic, all we need to do in order to retrieve another endpoint is add the query string, type definitions and wrapper method.
+- <b>Extendable</b>: the main thing is this application is built to grow; meaning that if we want to switch the color scheme from dark mode to light mode all we need to do is update the `./utils/system.ts` constants. This also includes a base unit of 8px which dictates how(\*) the margins, padding, font size, spacing, etc. are calculated. Along with our GraphQL logic, all we need to do in order to retrieve another endpoint is add the query string, type definitions and wrapper method.
 
 ## Unit Tests
 
