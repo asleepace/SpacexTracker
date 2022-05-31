@@ -83,6 +83,16 @@ The application roughyl follows the MVC paradigm with the following project stru
 
 - <b>Single Page Application (SPA)</b>: you may notice that there is no navigation system as I felt this would most likely be overkill, instead I opted to try and make use of the various hooks such as `useImperativeHandle` to demo my ability to comprehend react vs. implement a library.
 
+## Unit Tests
+
+To run unit tests navigate to the root directory and run the following command:
+
+```bash
+yarn test
+```
+
+These are very limited in scope and just check if the components render as expected.
+
 ## Troubleshooting
 
 As mentioned above the `npx react-native run-ios` command may fail the first time, in this case open the Xcode workspace and build normally:

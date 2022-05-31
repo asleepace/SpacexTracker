@@ -13,9 +13,9 @@ import {
   ScreenContainer,
   SearchBar,
   SpacexLogo,
-  Text
+  Text,
 } from '../src/components'
-\
+
 it('Renders ErrorView', () => {
   renderer.create(<ErrorView error={Error('test error')} onReload={() => {}} />)
   renderer.create(<ErrorView error={Error('test error')} />)
