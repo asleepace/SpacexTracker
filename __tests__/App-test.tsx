@@ -1,10 +1,10 @@
 /**
- * @format
+ * quick and dirty component unit tests to make sure everything renders as expected
+ * with the given props.
  */
 
 import React from 'react'
 import 'react-native'
-// Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer'
 import {
   ErrorView,
@@ -13,9 +13,9 @@ import {
   ScreenContainer,
   SearchBar,
   SpacexLogo,
-  Text,
+  Text
 } from '../src/components'
-
+\
 it('Renders ErrorView', () => {
   renderer.create(<ErrorView error={Error('test error')} onReload={() => {}} />)
   renderer.create(<ErrorView error={Error('test error')} />)
