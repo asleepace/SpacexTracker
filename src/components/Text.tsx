@@ -30,12 +30,12 @@ const styles = StyleSheet.create({
   },
   small: {
     fontSize: System.unit * 1.25,
-    fontWeight: 'bold',
+    fontWeight: System.fontWeight,
     color: System.foregroundLight,
   },
   large: {
     fontSize: System.unit * 2,
-    fontWeight: 'bold',
+    fontWeight: System.fontWeight,
     color: System.color,
   },
 })

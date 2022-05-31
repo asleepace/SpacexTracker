@@ -58,7 +58,7 @@ export const AboutMeController = React.forwardRef((_props, ref) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'black',
+    backgroundColor: System.negative,
     justifyContent: 'space-between',
     paddingVertical: System.unit * 8,
     padding: System.unit * 2,
@@ -80,8 +80,8 @@ const styles = StyleSheet.create({
     height: System.unit * 6,
   },
   closeText: {
-    color: 'black',
-    fontWeight: 'bold',
+    color: System.negative,
+    fontWeight: System.fontWeight,
     fontSize: System.unit * 2,
   },
 })

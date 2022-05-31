@@ -9,7 +9,7 @@ import {Text} from './Text'
 export const LoadingView = () => (
   <View style={styles.container}>
     <Text style={styles.message}>{'Loading ...'}</Text>
-    <ActivityIndicator size={'small'} color={'white'} />
+    <ActivityIndicator size={'small'} color={System.color} />
   </View>
 )
 

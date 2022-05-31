@@ -5,6 +5,7 @@ import {
   StatusBar,
   StyleSheet,
 } from 'react-native'
+import {System} from '../utils'
 
 /**
  * This component is a wrapper around the different screens (in this case only one).
@@ -27,7 +28,7 @@ export const ScreenContainer: React.FC<{}> = props => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'black',
+    backgroundColor: System.negative,
     flex: 1,
   },
   image: {

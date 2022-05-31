@@ -3,6 +3,8 @@
  */
 export const backgroundColor = 'rgba(0, 0, 0, 0.8)'
 export const foregroundLight = 'rgba(255, 255, 255, 0.3)'
+export const fontWeight = 'bold'
 export const borderRadius = 8
 export const color = 'white'
+export const negative = 'black'
 export const unit = 8
