@@ -107,4 +107,6 @@ open ./ios/SpacexTracker.xcworkspace
 
 Afterwards, this command should work normally!
 
+https://stackoverflow.com/questions/28794243/xcode-build-fails-with-error-code-65-without-indicative-message
+
 https://reactnative.dev/docs/troubleshooting
