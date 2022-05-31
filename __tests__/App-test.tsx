@@ -6,7 +6,15 @@ import React from 'react'
 import 'react-native'
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer'
-import {ErrorView, LabeledText} from '../src/components'
+import {
+  ErrorView,
+  LabeledText,
+  LoadingView,
+  ScreenContainer,
+  SearchBar,
+  SpacexLogo,
+  Text,
+} from '../src/components'
 
 it('Renders ErrorView', () => {
   renderer.create(<ErrorView error={Error('test error')} onReload={() => {}} />)
@@ -20,4 +28,32 @@ it('Renders LabeledText', () => {
   renderer.create(<LabeledText text={'some value'} />)
   renderer.create(<LabeledText label={'some label'} />)
   renderer.create(<LabeledText label={''} text={''} />)
+})
+
+it('Renders LoadingView', () => {
+  renderer.create(<LoadingView />)
+})
+
+it('Renders SearchBar', () => {
+  renderer.create(<SearchBar onSearch={() => null} />)
+})
+
+it('Renders SpacexLogo', () => {
+  renderer.create(<SpacexLogo onPress={() => null} />)
+})
+
+it('Renders Text', () => {
+  renderer.create(<Text>{'some text'}</Text>)
+  renderer.create(<Text style={{flex: 1}}>{'some text'}</Text>)
+  renderer.create(
+    <Text style={[{flex: 1}, {color: 'black'}]}>{'some text'}</Text>,
+  )
+})
+
+it('Renders ScreenContainer', () => {
+  renderer.create(
+    <ScreenContainer>
+      <Text>{'screens'}</Text>
+    </ScreenContainer>,
+  )
 })
