@@ -4,7 +4,7 @@ import {System} from '../utils'
 import {Text} from './Text'
 
 /**
- * A simple component which displays something is loading.
+ * A simple component which displays when something is loading.
  */
 export const LoadingView = () => (
   <View style={styles.container}>
