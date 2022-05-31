@@ -52,7 +52,7 @@ npx react-native run-android
 
 ## How to Use
 
-The SpaceX Tacker is a single page\* application which will fetch and render launches automatically. To learn more about a launch, simply tap on the cell and it will display more detailed information.
+The SpaceX Tacker is a single page\* application which will fetch and render launches automatically. To learn more about a launch, simply tap on a cell and it will display more detailed information.
 
 You can also filter the data by rocket name or launch station by typing into the search bar (case-insensitive)!
 
@@ -62,7 +62,7 @@ If anything should fail to load either click the reload button or pull down to r
 
 ## Project Structure
 
-The application roughly follows the MVC paradigm with the following project structure. The heavy lifting is done by the controllers which tie together the business logic, user interface and data together. Each directory has an `index.ts` file for easier imports.
+The application roughly follows the MVC paradigm with the following project structure. The heavy lifting is done by the controllers which tie the business logic, user interface and data together. Each directory has an `index.ts` file for easier imports.
 
 - `App.tsx` root of the application
   - `assets` contains static image files
