@@ -1,6 +1,7 @@
 import React, {useImperativeHandle, useState} from 'react'
 import {Image, Modal, StyleSheet, TouchableOpacity, View} from 'react-native'
 import {LabeledText, Text} from '../components'
+import {System} from '../utils'
 
 interface AboutMeControllerProps {}
 
@@ -59,28 +60,28 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: 'black',
     justifyContent: 'space-between',
-    paddingVertical: 60,
-    padding: 16,
+    paddingVertical: System.unit * 8,
+    padding: System.unit * 2,
     flex: 1,
   },
   colin: {
-    borderColor: 'white',
+    borderColor: System.color,
     borderWidth: 2,
-    borderRadius: 50,
-    height: 100,
-    width: 100,
+    borderRadius: System.unit * 6,
+    height: System.unit * 12,
+    width: System.unit * 12,
   },
   close: {
-    backgroundColor: 'white',
+    backgroundColor: System.color,
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
-    borderRadius: 8,
-    height: 40,
+    borderRadius: System.unit,
+    height: System.unit * 6,
   },
   closeText: {
     color: 'black',
     fontWeight: 'bold',
-    fontSize: 14,
+    fontSize: System.unit * 2,
   },
 })

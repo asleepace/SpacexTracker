@@ -98,7 +98,7 @@ const LaunchCellExpanded = ({data}: LaunchCellProps) => {
 
 const styles = StyleSheet.create({
   container: {
-    minHeight: 60,
+    minHeight: System.unit * 8,
     flexDirection: 'row',
     justifyContent: 'center',
     paddingHorizontal: System.unit * 2,

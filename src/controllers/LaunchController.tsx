@@ -4,6 +4,7 @@ import {ErrorView, LaunchCell, LoadingView, SearchBar} from '../components'
 import {fetchLaunches} from '../graphql'
 import {useSearchFilter} from '../hooks'
 import type {Launch} from '../interfaces'
+import {System} from '../utils'
 interface LaunchControllerProps {}
 
 /**
@@ -85,12 +86,12 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   list: {
-    paddingHorizontal: 16,
+    paddingHorizontal: System.unit * 2,
   },
   refresh: {
-    color: 'white',
+    color: System.color,
   },
   spacer: {
-    height: 120,
+    height: System.unit * 15,
   },
 })

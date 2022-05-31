@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   title: {
-    color: 'white',
+    color: System.color,
     fontSize: System.unit * 3,
   },
   detail: {
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   },
   button: {
     borderWidth: StyleSheet.hairlineWidth,
-    borderColor: 'white',
+    borderColor: System.color,
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: System.unit * 4,
